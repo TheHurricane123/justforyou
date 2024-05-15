@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Your Name</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #5a005d49, #ff5e62);
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+        }
+
+        #placeholder {
+            padding: 16px;
+            padding-right: 250px;
+            border: none;
+            border-radius: 12px;
+            position: absolute;
+            top: 48vh;
+            font-size: 24px;
+            left: 35vw;
+        }
+
+        #placeholder::placeholder {
+            font-size: 16px;
+            text-align: left;
+        }
+
+        .Submit {
+            padding: 12px;
+            padding-right: 50px;
+            position: absolute;
+            top: 60vh;
+            border: none;
+            border-radius: 16px;
+            background-color: rgb(220, 87, 87);
+            left: 35vw;
+        }
+    </style>
+    <script>
+        function submitName() {
+            var name = document.getElementById('placeholder').value;
+            window.location.href = "foryou.html?name=" + encodeURIComponent(name);
+        }
+    </script>
+</head>
+<body>
+    <input placeholder="YOUR NAME???" id="placeholder">
+    <button class="Submit" onclick="submitName()">Submit</button>
+</body>
+</html>
