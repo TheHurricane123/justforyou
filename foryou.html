@@ -24,9 +24,12 @@
         }
 
         .button-container {
-            display: flex;
-            gap: 20px;
             position: relative;
+            width: 100%;
+            height: 100px; /* Enough space for buttons */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         button {
@@ -45,6 +48,8 @@
 
         .No {
             position: absolute;
+            top: 50px; /* Initial position */
+            left: 50px; /* Initial position */
         }
 
         @media (max-width: 600px) {
@@ -62,14 +67,14 @@
     <script>
         function moveButton() {
             const noButton = document.querySelector('.No');
-            const buttonWidth = 100; // Approximate width of the button
-            const buttonHeight = 50; // Approximate height of the button
+            const buttonWidth = noButton.offsetWidth;
+            const buttonHeight = noButton.offsetHeight;
             const viewportWidth = window.innerWidth;
             const viewportHeight = window.innerHeight;
 
-            // Calculate random positions ensuring the button stays within the viewport
-            const randomTop = Math.random() * (viewportHeight - buttonHeight);
-            const randomLeft = Math.random() * (viewportWidth - buttonWidth);
+            // Generate random positions ensuring the button remains in bounds
+            const randomTop = Math.random() * (viewportHeight - buttonHeight - 20); // -20 for padding
+            const randomLeft = Math.random() * (viewportWidth - buttonWidth - 20); // -20 for padding
 
             noButton.style.top = `${randomTop}px`;
             noButton.style.left = `${randomLeft}px`;
