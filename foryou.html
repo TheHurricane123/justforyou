@@ -9,75 +9,71 @@
             background: linear-gradient(to right, #00113f97, #627de9);
             margin: 0;
             font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             height: 100vh;
         }
 
-        .container {
-            height: 80vh;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
         h1 {
-            margin-bottom: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 24px;
         }
 
-        .Yes,
-        .No {
+        .button-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        button {
             background-color: burlywood;
-            padding: 12px;
-            position: absolute;
-            width: 60px;
+            padding: 12px 20px;
             border-radius: 16px;
             border: none;
-            height: 40px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
         }
 
-        .Yes {
-            top: 28vw;
-            right: 730px;
+        button:hover {
+            background-color: #c79a75;
         }
 
         .No {
-            top: 28vw;
-            right: 650px;
+            position: absolute;
         }
 
-        @media only screen and (max-width: 600px) {
-            .Yes {
-                top: 80%;
-                right: 250px;
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 20px;
+                margin-bottom: 20px;
             }
 
-            .No {
-                top: 80%;
-                right: 150px;
+            button {
+                font-size: 14px;
+                padding: 10px 16px;
             }
         }
     </style>
     <script>
         function moveButton() {
             let no = document.querySelector('.No');
-            let top = Math.floor(Math.random() * window.innerHeight);
-            let bottom = Math.min(Math.floor(Math.random() * window.innerWidth), window.innerWidth);
-            no.style.left = bottom + 'px';
+            let top = Math.floor(Math.random() * (window.innerHeight - 50)); // Avoid cutting off
+            let left = Math.floor(Math.random() * (window.innerWidth - 100)); // Avoid cutting off
+            no.style.left = left + 'px';
             no.style.top = top + 'px';
         }
 
         function yes() {
-           var name = decodeURIComponent(new URLSearchParams(window.location.search).get('name'));
-           var message = "I love you too " + name;
-           alert(message);
+            var name = decodeURIComponent(new URLSearchParams(window.location.search).get('name'));
+            var message = "I love you too, " + (name || "stranger") + "!";
+            alert(message);
         }
     </script>
 </head>
 <body>
-    <div class="container">
-        <h1>Do You Love Me????</h1>
-    </div>
-    <button class="Yes" onclick="yes()">Yes</button>
-    <button class="No" onclick="moveButton()">No</button>
-</body>
-</html>
+    <h1>Do You Love Me????</h1>
+    <div class="button-container">
+        <button clas
