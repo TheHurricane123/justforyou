@@ -9,45 +9,55 @@
             background: linear-gradient(to right, #5a005d49, #ff5e62);
             margin: 0;
             font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             height: 100vh;
         }
 
-        #placeholder {
+        input {
             padding: 16px;
-            padding-right: 250px;
+            width: 80%;
+            max-width: 400px;
             border: none;
             border-radius: 12px;
-            position: absolute;
-            top: 48vh;
-            font-size: 24px;
-            left: 35vw;
+            font-size: 20px;
+            margin-bottom: 20px;
         }
 
-        #placeholder::placeholder {
+        input::placeholder {
             font-size: 16px;
             text-align: left;
         }
 
-        .Submit {
-            padding: 12px;
-            padding-right: 50px;
-            position: absolute;
-            top: 60vh;
+        button {
+            padding: 12px 20px;
             border: none;
             border-radius: 16px;
             background-color: rgb(220, 87, 87);
-            left: 35vw;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: rgb(180, 70, 70);
         }
     </style>
     <script>
         function submitName() {
-            var name = document.getElementById('placeholder').value;
-            window.location.href = "foryou.html?name=" + encodeURIComponent(name);
+            var name = document.querySelector('input').value;
+            if (name.trim() !== "") {
+                window.location.href = "foryou.html?name=" + encodeURIComponent(name);
+            } else {
+                alert("Please enter your name!");
+            }
         }
     </script>
 </head>
 <body>
     <input placeholder="YOUR NAME???" id="placeholder">
-    <button class="Submit" onclick="submitName()">Submit</button>
+    <button onclick="submitName()">Submit</button>
 </body>
 </html>
