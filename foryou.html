@@ -72,9 +72,9 @@
             const viewportWidth = window.innerWidth;
             const viewportHeight = window.innerHeight;
 
-            // Generate random positions ensuring the button remains in bounds
-            const randomTop = Math.random() * (viewportHeight - buttonHeight - 20); // -20 for padding
-            const randomLeft = Math.random() * (viewportWidth - buttonWidth - 20); // -20 for padding
+            // Generate random positions ensuring the button remains fully visible within the viewport
+            const randomTop = Math.random() * (viewportHeight - buttonHeight);
+            const randomLeft = Math.random() * (viewportWidth - buttonWidth);
 
             noButton.style.top = `${randomTop}px`;
             noButton.style.left = `${randomLeft}px`;
